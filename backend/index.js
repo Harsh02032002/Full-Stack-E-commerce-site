@@ -9,7 +9,10 @@ const router = require('./routes')
 const app = express()
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://full-stack-e-commerce-site-yrlu.vercel.app",
+    ],
     credentials: true,
   })
 );
