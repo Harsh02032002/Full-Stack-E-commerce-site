@@ -13,11 +13,14 @@ const Success = () => {
 
     const saveOrder = async () => {
       try {
-        const res = await fetch("http://localhost:8080/api/webhook", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ sessionId }),
-        });
+        const res = await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/api/webhook`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ sessionId }),
+          }
+        );
 
         if (!res.ok) {
           const text = await res.text(); // fallback if JSON parsing fails
